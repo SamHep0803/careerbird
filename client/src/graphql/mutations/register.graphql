@@ -1,0 +1,5 @@
+mutation Register($credentials: CredentialsInput!) {
+	register(credentials: $credentials) {
+		...ResponseFragment
+	}
+}
