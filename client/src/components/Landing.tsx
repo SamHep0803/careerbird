@@ -8,22 +8,20 @@ interface LandingProps { }
 export const Landing: React.FC<LandingProps> = ({ }) => {
   const { colorMode, toggleColorMode } = useColorMode()
   return (
-    <Flex h="100%">
-      <Box mx="auto" my="20%">
-        <Heading size="4xl">Welcome to CareerBird.</Heading>
-        <Heading size="xl" mt={4}>Connecting you to opportunity.</Heading>
-        <Box mt={6}>
-          <LightMode>
-            <NextLink href="/register">
-              <Button colorScheme="red">
-                Get Started
-              </Button>
-            </NextLink>
-            <Button colorScheme="red" onClick={toggleColorMode}>
-              toggle
+    <Flex h="100%" maxW={1000} w="100%" mx="auto" my="15%" px={5} flexDirection="column">
+      <Heading size="4xl">Welcome to CareerBird.</Heading>
+      <Heading size="xl" mt={4}>Connecting you to opportunity.</Heading>
+      <Box mt={6}>
+        <LightMode>
+          <NextLink href="/register">
+            <Button colorScheme="red">
+              Get Started
             </Button>
-          </LightMode>
-        </Box>
+          </NextLink>
+          <Button colorScheme="red" onClick={toggleColorMode}>
+            toggle
+          </Button>
+        </LightMode>
       </Box>
     </Flex>
   );
