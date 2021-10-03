@@ -13,7 +13,7 @@ interface NavBarProps { }
 
 export const NavBar: React.FC<NavBarProps> = ({ }) => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [logout, { loading: logoutLoading, error }] = useLogoutMutation();
+  const [logout, { loading: logoutLoading }] = useLogoutMutation();
   const { data, loading: meLoading } = useMeQuery();
   let body = null;
 
@@ -21,7 +21,7 @@ export const NavBar: React.FC<NavBarProps> = ({ }) => {
     body = null;
   } else if (!data?.me) {
     body = (
-      <>
+      <Flex alignItems="center">
         <NextLink href="/login">
           <Link mr={2} color="white">
             Login
@@ -30,12 +30,14 @@ export const NavBar: React.FC<NavBarProps> = ({ }) => {
         <NextLink href="/register">
           <Link color="white">Register</Link>
         </NextLink>
-      </>
+      </Flex>
     );
   } else {
     body = (
-      <Flex>
-        <Box mr={2}>{data.me.username}</Box>
+      <Flex alignItems="center">
+        <Box mr={2} color="white">
+          {data.me.username}
+        </Box>
         <Button
           onClick={() => {
             logout({
@@ -51,6 +53,7 @@ export const NavBar: React.FC<NavBarProps> = ({ }) => {
           }}
           isLoading={logoutLoading}
           variant="link"
+          color="teal.200"
         >
           logout
         </Button>
@@ -64,7 +67,7 @@ export const NavBar: React.FC<NavBarProps> = ({ }) => {
           <Image src="/assets/CareerBird.png" alt="careerbird" />
         </Link>
       </NextLink>
-      <Box ml="auto" p={4}>
+      <Flex ml="auto" p={4}>
         <IconButton
           aria-label="Toggle Color Mode"
           icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
@@ -72,7 +75,7 @@ export const NavBar: React.FC<NavBarProps> = ({ }) => {
           onClick={toggleColorMode}
         />
         {body}
-      </Box>
+      </Flex>
     </Flex>
   );
 };
