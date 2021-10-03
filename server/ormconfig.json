@@ -1,12 +1,13 @@
 {
-	"type": "postgres",
-	"database": "careerbird",
-	"username": "arvee",
-	"logging": true,
-	"synchronize": true,
-	"entities": ["dist/entities/*.js"],
-	"migrations": ["dist/migrations/*.js"],
-	"cli": {
-		"migrationsDir": "./src/migrations"
-	}
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "arvee",
+  "password": "postgres",
+  "database": "careerbird",
+  "entities": ["dist/entities/*.js"],
+  "migrations": ["dist/migrations/*.js"],
+  "cli": {
+    "migrationsDir": "src/migrations"
+  }
 }
