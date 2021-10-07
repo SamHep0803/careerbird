@@ -1,6 +1,12 @@
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { Box, Flex, Link } from "@chakra-ui/layout";
-import { Button, IconButton, Image, useColorMode } from "@chakra-ui/react";
+import {
+  Button,
+  IconButton,
+  Image,
+  Text,
+  useColorMode,
+} from "@chakra-ui/react";
 import NextLink from "next/link";
 import React from "react";
 import {
@@ -62,11 +68,18 @@ export const NavBar: React.FC<NavBarProps> = ({ }) => {
   }
   return (
     <Flex bg="tomato">
-      <NextLink href="/">
-        <Link maxW={65} maxH={65} mx={2} my="auto">
-          <Image src="/assets/CareerBird.png" alt="careerbird" />
-        </Link>
-      </NextLink>
+      <Flex alignItems="center">
+        <NextLink href="/">
+          <Link maxW={65} maxH={65} mx={2} my="auto">
+            <Image src="/assets/CareerBird.png" alt="careerbird" />
+          </Link>
+        </NextLink>
+        <NextLink href="/">
+          <Text fontSize="2xl" color="white">
+            CareerBird
+          </Text>
+        </NextLink>
+      </Flex>
       <Flex ml="auto" p={4}>
         <IconButton
           aria-label="Toggle Color Mode"

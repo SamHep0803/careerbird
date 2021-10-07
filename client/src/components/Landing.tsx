@@ -17,7 +17,7 @@ export const Landing: React.FC<LandingProps> = ({ }) => {
       flexDirection="column"
     >
       <Heading size="4xl">
-        Welcome to{" "}
+        Welcome to
         <Box as="span" color="red.400">
           {" "}
           CareerBird.
